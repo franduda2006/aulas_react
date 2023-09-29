@@ -1,4 +1,4 @@
-import { List } from "@phosphor-icons/react"
+import { List, X } from "@phosphor-icons/react"
 
 import { useState } from "react"
 
@@ -19,7 +19,13 @@ function Header() {
         <div className={styles.mobile}>
             <div className={styles.menu_logo}>
                 <button onClick={handleAbrirFecharMenu}>
-                  <List size={32} />
+                  {
+                    abrirMenu === true ?(
+                      <x size={32} />
+                    ) :(
+                      <List size={32} />
+                    )
+                  }
                 </button>
                 <h1>Logo</h1>
             </div>
@@ -32,10 +38,23 @@ function Header() {
             <a href="">Criadores</a>
            </nav>
           </div>
-           
+        </div>
+
+        <div className={styles.desktop}>
+          <div>
+            <h1>logo</h1>
+          </div>
+          <div>
+          <nav className={styles.desktop_options}>
+            <a href="">Inìcio</a>
+            <a href="">aplicativo</a>
+            <a href="">Componentes</a>
+            <a href="">Artigos</a>
+            <a href="">Criadores</a>
+           </nav>
+          </div>
         </div>
     </header>
   )
 }
-
 export default Header
